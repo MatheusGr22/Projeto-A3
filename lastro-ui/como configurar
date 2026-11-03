@@ -1,0 +1,67 @@
+# 🏦 Lastro — Gestão de Investimentos
+
+O **Lastro** é um sistema completo de gestão de carteira de investimentos e inteligência financeira. O sistema é composto por uma API RESTful em **.NET 10 (C#)** com persistência em banco relacional **SQLite** via **Entity Framework Core**, e uma interface reativa moderna construída em **React (TypeScript)** sobre o **Vite**.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+### **Backend (API RESTful)**
+- **Linguagem & Framework:** C# / .NET 10.0 (ASP.NET Core Web API)
+- **Arquitetura de API:** Controller-based API com validação e DTOs bilíngues (Português / Inglês)
+- **ORM:** Entity Framework Core (EF Core 10)
+- **Banco de Dados:** SQLite (persistência relacional local no arquivo `lastro.db`)
+- **Serialização JSON:** `System.Text.Json` com suporte a `JsonStringEnumConverter`
+
+### **Frontend (Interface Web)**
+- **Framework & Bundler:** React com TypeScript + Vite
+- **Gerenciamento de Estado:** React Hooks nativos (`useState`, `useEffect`)
+- **Cliente HTTP:** Axios (`services/api.ts`)
+- **Visualização de Dados:** Recharts (Gráfico de Pizza para distribuição da carteira e Gráfico de Barras)
+- **Feedback Visual & Ícones:** React Hot Toast & Lucide React Icons
+- **Design System:** CSS Variables (Tema Dark) e Modais Responsivos
+
+---
+
+## 📋 Pré-requisitos
+
+Antes de começar, você precisará ter instalado em sua máquina:
+- [.NET 10.0 SDK](https://dotnet.microsoft.com/download)
+- [Node.js](https://nodejs.org/) (versão 18.x ou superior)
+- [Git](https://git-scm.com/)
+
+---
+
+## 🚀 Como Baixar, Instalar e Executar
+
+### **1. Clonar o Repositório**
+```bash
+git clone [https://github.com/seu-usuario/lastro.git](https://github.com/seu-usuario/lastro.git)
+cd Lastro
+
+
+acessar api: cd Lastro.Api
+
+instalar dependencias: 
+dotnet restore
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet tool install --global dotnet-ef
+
+Gerar banco: 
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+iniciar backend : dotnet run
+
+FRONT END:
+cd lastro-ui
+
+
+bibliotecas: 
+npm install --legacy-peer-deps
+npm install recharts react-hot-toast axios lucide-react --legacy-peer-deps
+npm install
+
+iniciar Front end: npm run dev
